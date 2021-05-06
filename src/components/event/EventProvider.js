@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 
-export const eventContext = React.createContext()
+export const EventContext = React.createContext()
 
-export const eventProvider = (props) => {
+export const EventProvider = (props) => {
     const [ events, setEvents ] = useState([])
 
     const getEvents = () => {
@@ -16,8 +16,8 @@ export const eventProvider = (props) => {
     }
 
     return (
-        <eventContext.Provider value={{ events, getEvents }} >
+        <EventContext.Provider value={{ events, getEvents }} >
             { props.children }
-        </eventContext.Provider>
+        </EventContext.Provider>
     )
 }

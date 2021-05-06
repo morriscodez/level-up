@@ -2,6 +2,8 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { GameList } from "./game/GameList"
 import { GameProvider } from "./game/GameProvider"
+import { EventList } from "./event/EventList"
+import { EventProvider } from "./event/EventProvider"
 
 export const ApplicationViews = () => {
     return <>
@@ -10,11 +12,14 @@ export const ApplicationViews = () => {
             backgroundColor: "lightgoldenrodyellow",
             lineHeight: "1.75rem"
         }}>
-            <GameProvider>
-                <Route exact path ='/'>
-                    <GameList />
-                </Route>
-            </GameProvider>
+            <EventProvider>
+                <GameProvider>
+                    <Route exact path ='/'>
+                        <GameList />
+                        <EventList />
+                    </Route>
+                </GameProvider>
+            </EventProvider>
         </main>
     </>
 }
