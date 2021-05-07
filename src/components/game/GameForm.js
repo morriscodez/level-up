@@ -23,9 +23,7 @@ export const GameForm = () => {
     const handleInput = (e) => {
         const newGameState = { ...currentGame }
         let selectedVal = e.target.value
-        if (e.target.value.includes("Id")) {
-            selectedVal = +selectedVal
-        }
+        
 
         newGameState[e.target.id] = selectedVal
 
@@ -39,7 +37,7 @@ export const GameForm = () => {
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="label">Title: </label>
-                        <input type="text" name="label" required autoFocus className="form-control"
+                        <input type="text" id="label" required autoFocus className="form-control"
                             value={currentGame.label}
                             onChange={handleInput}
                         />
@@ -48,7 +46,7 @@ export const GameForm = () => {
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="numberOfPlayers">Players Needed: </label>
-                        <input type="text" name="numberOfPlayers" required className="form-control"
+                        <input type="text" id="numberOfPlayers" required className="form-control"
                             value={currentGame.numberOfPlayers}
                             onChange={handleInput}
                         />
@@ -57,7 +55,7 @@ export const GameForm = () => {
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="skillLevel">Skill Level: </label>
-                        <input type="text" name="skillLevel" required className="form-control"
+                        <input type="text" id="skillLevel" required className="form-control"
                             value={currentGame.skillLevel}
                             onChange={handleInput}
                         />
@@ -65,8 +63,8 @@ export const GameForm = () => {
                 </fieldset>
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="gameType">Category: </label>
-                        <select name="gameType" onChange={handleInput}>
+                        <label htmlFor="gameTypeId">Category: </label>
+                        <select id="gameTypeId" onChange={handleInput}>
                             {
                                 gameTypes.map(type => {
                                     return <option key={type.id} value={type.id}>{type.label}</option>
