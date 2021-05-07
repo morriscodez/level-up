@@ -2,13 +2,15 @@ import { createEvent } from "@testing-library/dom"
 import React, { useContext, useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { GameContext } from "../game/GameProvider"
+import { EventContext } from "./EventProvider"
 
 
 export const EventForm = () => {
     const history = useHistory()
     const {getGames, games } = useContext(GameContext)
+    const {createEvent} = useContext(EventContext)
 
-    const [currentEvent, setEvent] = useState({
+    const [currentEvent, setEvent,] = useState({
         organizerId: 0,
         name: "",
         description: "",
@@ -51,10 +53,19 @@ export const EventForm = () => {
             </fieldset>
             <fieldset>
                     <div className="form-group">
+                        <label htmlFor="label">Name: </label>
+                        <input type="text" id="name" required autoFocus className="form-control"
+                            value={currentEvent.name}
+                            onChange={changeEventState}
+                        />
+                    </div>
+            </fieldset>
+            <fieldset>
+                    <div className="form-group">
                         <label htmlFor="label">Description: </label>
-                        <input type="text" id="Description" required autoFocus className="form-control"
+                        <input type="text" id="description" required autoFocus className="form-control"
                             value={currentEvent.description}
-                            onChange={handleInput}
+                            onChange={changeEventState}
                         />
                     </div>
             </fieldset>
@@ -63,7 +74,7 @@ export const EventForm = () => {
                         <label htmlFor="label">address: </label>
                         <input type="text" id="address" required autoFocus className="form-control"
                             value={currentEvent.address}
-                            onChange={handleInput}
+                            onChange={changeEventState}
                         />
                     </div>
             </fieldset>
@@ -72,16 +83,16 @@ export const EventForm = () => {
                         <label htmlFor="label">Date: </label>
                         <input type="text" id="date" required autoFocus className="form-control"
                             value={currentEvent.date}
-                            onChange={handleInput}
+                            onChange={changeEventState}
                         />
                     </div>
             </fieldset>
             <fieldset>
                     <div className="form-group">
                         <label htmlFor="label">Time: </label>
-                        <input type="text" id="Time" required autoFocus className="form-control"
+                        <input type="text" id="time" required autoFocus className="form-control"
                             value={currentEvent.time}
-                            onChange={handleInput}
+                            onChange={changeEventState}
                         />
                     </div>
             </fieldset>
