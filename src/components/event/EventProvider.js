@@ -39,7 +39,7 @@ export const EventProvider = (props) => {
     }
 
     return (
-        <EventContext.Provider value={{ events, getEvents, createEvent }} >
+        <EventContext.Provider value={{ events, getEvents, createEvent, joinEvent }} >
             { props.children }
         </EventContext.Provider>
     )

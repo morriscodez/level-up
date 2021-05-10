@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { useHistory } from "react-router"
 import { EventContext } from "./EventProvider.js"
-import "./Events.css"
+// import "./Events.css"
 
 export const EventList = (props) => {
     const { events, getEvents, joinEvent } = useContext(EventContext)
@@ -45,7 +45,7 @@ export const EventList = (props) => {
                                 </div>
                                 <div className="event__address">Event Happening at: {event.address}</div>
                                     <button className="btn btn-2" onClick={() => joinEvent(event.id)}>
-
+                                            Join Event
                                     </button>
                                 </section>
                     })
