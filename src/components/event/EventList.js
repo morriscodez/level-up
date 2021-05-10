@@ -4,7 +4,7 @@ import { EventContext } from "./EventProvider.js"
 // import "./Events.css"
 
 export const EventList = (props) => {
-    const { events, getEvents, joinEvent } = useContext(EventContext)
+    const { events, getEvents, joinEvent, leaveEvent } = useContext(EventContext)
     const history = useHistory()
     
     useEffect(() => {
@@ -40,13 +40,19 @@ export const EventList = (props) => {
                                         day: 'numeric'
                                     })
                                     }
-                                @ {event.time}
+                                @ {event.time}.toLocaleDateString()
 
                                 </div>
                                 <div className="event__address">Event Happening at: {event.address}</div>
-                                    <button className="btn btn-2" onClick={() => joinEvent(event.id)}>
+                                    {
+                                        event.joined
+                                        ?   <button className="btn btn-2" onClick={() => leaveEvent(event.id)}>
+                                            Leave Event
+                                            </button> :
+                                            <button className="btn btn-2" onClick={() => joinEvent(event.id)}>
                                             Join Event
-                                    </button>
+                                            </button>
+                                    }
                                 </section>
                     })
                 }
