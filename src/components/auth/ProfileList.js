@@ -19,6 +19,7 @@ export const Profile = () => {
                     <h3>Your Info</h3>
                 </header>
                 <div className="profile__name">
+                    {/*! ASK ABOUT THIS */}
                     Welcome: {profile.gamer && profile.gamer.user.first_name} {profile.gamer && profile.gamer.user.last_name}
                 </div>
                 <div className="profile__username">Username: {profile.gamer && profile.gamer.username}</div>
