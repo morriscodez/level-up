@@ -13,7 +13,7 @@ export const GameForm = () => {
         skillLevel: 1,
         numberOfPlayers: 0,
         label: "",
-        gameTypeId: 0,    
+        gameTypeId: 0    
     })
 
     useEffect(() => {
